@@ -12,49 +12,15 @@ namespace Async
         [STAThreadAttribute]
         static void Main(string[] args)
         {
-            Run();
-            RunAsync();
+            TaskbasedAsyncPattern.Run();
+            TaskbasedAsyncPattern.RunAsync();
+
+            TaskbasedAsyncPattern.GetHostEntryAsync("localhost");
 
             Console.WriteLine("done");
             Console.ReadKey();
         }
 
-        private static void Run()
-        {
-            if (GetUserDialogResult())
-            {
-                Console.WriteLine("true");
-            }
-        }
-
-        private static bool GetUserDialogResult()
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-
-            return dialog.ShowDialog() == DialogResult.OK;
-        }
-
-        private async static void RunAsync()
-        {
-            if (await GetUserDialogResultAsync())
-            {
-                Console.WriteLine("true");
-            }
-        }
-
-        private static Task<bool> GetUserDialogResultAsync()
-        {
-            TaskCompletionSource<bool> tcs = new TaskCompletionSource<bool>();
-
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.FileOk += delegate 
-            {
-                tcs.SetResult(true);
-            };
-
-            dialog.ShowDialog();
-
-            return tcs.Task;
-        }
+       
     }
 }
