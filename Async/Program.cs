@@ -16,6 +16,7 @@ namespace Async
             TaskbasedAsyncPattern.RunAsync();
 
             TaskbasedAsyncPattern.GetHostEntryAsync("localhost");
+            TaskbasedAsyncPattern.GetHostEntryAsync2("localhost");
 
             Console.WriteLine("done");
             Console.ReadKey();
