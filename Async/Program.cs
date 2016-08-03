@@ -12,8 +12,10 @@ namespace Async
         [STAThreadAttribute]
         static void Main(string[] args)
         {
-            TaskbasedAsyncPattern.Run();
-            TaskbasedAsyncPattern.RunAsync();
+            Progress.Run();
+
+            //TaskbasedAsyncPattern.Run();
+            //TaskbasedAsyncPattern.RunAsync();
 
             TaskbasedAsyncPattern.GetHostEntryAsync("localhost");
             TaskbasedAsyncPattern.GetHostEntryAsync2("localhost");

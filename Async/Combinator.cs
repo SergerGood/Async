@@ -8,7 +8,7 @@ namespace Async
 {
     public static class Combinator
     {
-        private static async Task<T> WithTimeOut<T>(Task<T> task, int time)
+        public static async Task<T> WithTimeOut<T>(Task<T> task, int time)
         {
             Task delayTask = Task.Delay(time);
             Task firstToFinish = await Task.WhenAny(task, delayTask);
